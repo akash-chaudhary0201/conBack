@@ -4,7 +4,8 @@ const path = require("path");
 const pdfParse = require("pdf-parse");
 const fs = require("fs");
 const cors = require("cors");
-const Tesseract = require("tesseract.js"); // Import Tesseract.js
+const Tesseract = require("tesseract.js");
+const PORT = process.env.PORT || 4567;
 
 const app = express();
 
@@ -81,6 +82,6 @@ app.post("/upload", upload.single("file"), (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
 });
