@@ -5,7 +5,7 @@ const pdfParse = require("pdf-parse");
 const fs = require("fs");
 const cors = require("cors");
 const Tesseract = require("tesseract.js");
-const PORT = process.env.PORT || 4567;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
