@@ -8,7 +8,13 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://con-front.vercel.app",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
 
 // Use memory storage for multer
 const storage = multer.memoryStorage();
