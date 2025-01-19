@@ -12,6 +12,7 @@ const corsOptions = {
   origin: "https://con-front.vercel.app",
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
