@@ -52,7 +52,10 @@ app.post("/upload", upload.single("file"), async (req, res) => {
       });
     } else if (req.file.mimetype.startsWith("image")) {
       // Handle image file
-      Tesseract.recognize(fileBuffer, "eng", {
+      const fileBase64 = `data:${
+        req.file.mimetype
+      };base64,${fileBuffer.toString("base64")}`;
+      Tesseract.recognize(fileBase64, "eng", {
         logger: (m) => console.log(m),
       })
         .then(({ data: { text } }) => {
